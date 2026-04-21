@@ -1,5 +1,5 @@
-import type { CustomRequest } from './custom-request.ts';
-import type { CustomResponse } from './custom-response.ts';
+import type { CustomRequest } from "./http/custom-request.ts";
+import type { CustomResponse } from "./http/custom-response.ts";
 
 type Handler = (
   req: CustomRequest,
@@ -12,10 +12,10 @@ export class Router {
     POST: {},
   };
   get(route: string, handler: Handler) {
-    this.routes['GET'][route] = handler;
+    this.routes["GET"][route] = handler;
   }
   post(route: string, handler: Handler) {
-    this.routes['POST'][route] = handler;
+    this.routes["POST"][route] = handler;
   }
   find(method: string, route: string) {
     return this.routes[method]?.[route] || null;
