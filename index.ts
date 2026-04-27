@@ -7,6 +7,7 @@ import {
   pegarAulas,
   pegarAula,
 } from "./core/database.ts";
+import { logger } from "./core/middleware/logger.ts";
 
 const core = new Core();
 
@@ -18,7 +19,7 @@ core.router.get("/curso/:slug", (req, res) => {
   } else {
     res.status(404).json("curso não encontrado");
   }
-});
+}, [logger]);
 
 core.router.get("/", (req, res) => {
     res.status(200).json("Success");

@@ -3,6 +3,7 @@ import type { IncomingMessage } from "node:http";
 export interface CustomRequest extends IncomingMessage {
   query: URLSearchParams;
   pathname: string;
+  method: string;
   body: Record<string, any>;
   params: Record<string, any>;
 }

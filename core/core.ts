@@ -28,7 +28,7 @@ export class Core {
 
     const { route, params } = matched
     req.params = params
-    await route(req, res)
+    await route.handler(req, res)
   };
 
   init() {
